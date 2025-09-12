@@ -19,7 +19,7 @@ const Search = () => {
         clearInterval(timer);
 
         if (e.target.value.trim().length > 1) {
-
+            setShowDropdown(true)
             setTimer(setTimeout(() => {
                 dispatch(searchCity(e.target.value))
             }, 500))
@@ -29,11 +29,13 @@ const Search = () => {
         }
 
     }
-
-    useEffect(() => {
-        if (data.length) {
-            setShowDropdown(true)
+    const handleFocus = (e)=>{
+        if(e.target.value.trim().length > 1){
+        setShowDropdown(true)
         }
+    }
+    useEffect(() => {
+   
         if(!data.length){
             setShowDropdown(false)
         }
@@ -43,6 +45,7 @@ const Search = () => {
     const handleSearchItem = (lat, lon) => {
 
         dispatch(fetchWeatherData(lat, lon))
+        setShowDropdown(false)
 
     }
 
@@ -52,6 +55,7 @@ const Search = () => {
             : 'input'}>
             <i className='bx bx-search'></i>
             <input
+                onFocus={handleFocus}
                 onBlur={handleBlur}
                 onChange={handleSearch}
                 type="text"
