@@ -18,7 +18,7 @@ const Search = () => {
 
         clearInterval(timer);
 
-        if (e.target.value.trim().length > 2) {
+        if (e.target.value.trim().length > 1) {
 
             setTimer(setTimeout(() => {
                 dispatch(searchCity(e.target.value))
