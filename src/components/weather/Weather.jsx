@@ -81,8 +81,18 @@ const Weather = () => {
             <Navbar/>
 
             <aside className="aside">
+
                 {/* Now Box */}
-                {current && forecast && air ? (<>
+                { loading? (
+                               <>
+                    <div className="box-left now felx justify-center items-center">
+                        <div className="loader2"></div>
+                    </div>
+                      <div className="box-left now felx justify-center items-center">
+                        <div className="loader2 w-40"></div>
+                    </div>
+                    </>
+            ) : current && forecast && air ? (        <>
                    <div className="box-left now">
                     <div className="now-detail">
                         <h1 className="font-light">Now</h1>
@@ -113,8 +123,6 @@ const Weather = () => {
                         </div>
                     </div>
                 </div>
-
-
                 <div className="box-left fore-cast">
                     <div>
                         <h5 className='text-surface-2'>5 days forecast</h5>
@@ -132,15 +140,8 @@ const Weather = () => {
                     </div>
                     ))}
        
-                </div></>) : loading ? (
-                    <>
-                    <div className="box-left now felx justify-center items-center">
-                        <div className="loader2"></div>
-                    </div>
-                      <div className="box-left now felx justify-center items-center">
-                        <div className="loader2 w-40"></div>
-                    </div>
-                    </>): error ? (
+                </div></>
+         ): error ? (
                                   <>
                     <div className="box-left now felx justify-center items-center">
                         <h1 className='text-2xl'>Error</h1>
@@ -163,7 +164,33 @@ const Weather = () => {
                     
             <main className="main">
                 <div className="main-content">
-                    {current && forecast && air ? (<>
+                    {loading ? (
+                              <>
+                            <div className='today'>
+                        <h1>Todays Highlights</h1>
+                    </div>
+                        <div className="content-air">
+                            <div className="loader2"></div>
+                        </div>
+                        <div className="content-air sun">
+                            <div className="loader2"></div>
+                        </div>
+                        <div className="content-bottom">
+                            <div className="loader2"></div>
+                        </div>
+                        <div className="content-bottom">
+                            <div className="loader2"></div>
+                        </div>
+                        <div className="content-bottom">
+                            <div className="loader2"></div>
+                        </div>
+                        <div className="content-bottom">
+                            <div className="loader2"></div>
+                        </div>
+                        </>
+
+                    ) : current && forecast && air? (
+                                          <>
                     <div className='today'>
                         <h1>Todays Highlights</h1>
                     </div>
@@ -272,30 +299,7 @@ const Weather = () => {
                             </h1>
                         </div>
                     </div>
-                    </>) : loading? (
-                        <>
-                            <div className='today'>
-                        <h1>Todays Highlights</h1>
-                    </div>
-                        <div className="content-air">
-                            <div className="loader2"></div>
-                        </div>
-                        <div className="content-air sun">
-                            <div className="loader2"></div>
-                        </div>
-                        <div className="content-bottom">
-                            <div className="loader2"></div>
-                        </div>
-                        <div className="content-bottom">
-                            <div className="loader2"></div>
-                        </div>
-                        <div className="content-bottom">
-                            <div className="loader2"></div>
-                        </div>
-                        <div className="content-bottom">
-                            <div className="loader2"></div>
-                        </div>
-                        </>
+                    </>
                     ) : error ? (<>
                         <div className='today'>
                         <h1>Todays Highlights</h1>
