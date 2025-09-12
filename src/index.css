@@ -72,7 +72,9 @@
         @apply text-2xl ;
     }
     .input input{
-        @apply outline-0 w-74   ; 
+        @apply outline-0 w-74  
+        max-[800px]:w-[100%]
+         ; 
     }
 
     .logo{
@@ -203,7 +205,7 @@
         @apply flex  justify-between mb-4 ;
     }
     .condition{
-        @apply bg-green-400 text-black p-1 rounded-2xl font-bold text-[12px]
+        @apply text-black p-1 rounded-2xl font-bold text-[12px]
     }
     .air-info{
         @apply flex items-center justify-between my-15;
@@ -306,3 +308,13 @@
     }
 
 }
+
+/* HTML: <div class="loader"></div> */
+.loader2 {
+  width: 30px;
+  aspect-ratio: 4;
+  background: radial-gradient(circle closest-side,#ffffff 90%,#ffffff00) 0/calc(100%/3) 100% space;
+  clip-path: inset(0 100% 0 0);
+  animation: l1 1s steps(4) infinite;
+}
+@keyframes l1 {to{clip-path: inset(0 -34% 0 0)}}

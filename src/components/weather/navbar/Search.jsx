@@ -1,6 +1,7 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import {searchCity} from '../../../redux/search/searchAction'
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchWeatherData } from '../../../redux/weather/weatherAction';
 
 const Search = () => {
     const {data, loading, error} = useSelector(state => state.search)
@@ -10,6 +11,7 @@ const Search = () => {
 
     const handleFocus = () => setShowDropdown(true);
     const handleBlur = () => setTimeout(() => setShowDropdown(false), 100); 
+const { current, forecast, air, } = useSelector(state => state.weather);
 
     const handleSearch = (e) => {
 
@@ -19,11 +21,17 @@ const Search = () => {
             dispatch(searchCity(e.target.value))
         }, 500))
     }
+    
+    useEffect(()=>{
+        
+   
+        
+    },[current])
+
 
     const handleSearchItem = (lat, lon)=>{
-        console.log(lat,lon);
-        console.log('clicked');
-        
+
+        dispatch(fetchWeatherData(lat,lon))
         
     }
 
@@ -46,7 +54,6 @@ const Search = () => {
 
                             <li className=' search-result-item'   key={`${c.lat}-${c.lon}-${i}`}
                                 onClick={(e) => {
-                                e.stopPropagation(); // prevents parent click
                                 handleSearchItem(c.lat, c.lon);
                             }} >
                                 <div className='flex items-center gap-2' >
