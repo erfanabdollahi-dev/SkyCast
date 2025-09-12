@@ -15,7 +15,10 @@ export const weatherReducer = (state = weatherState, action) => {
             return {
                 ...state,
                 loading: true,
-                error: null
+                error: null,
+                current: null,
+                forecast: [],
+                air: null,
             }
         case WEATHER_SUCCESS:
             return {
