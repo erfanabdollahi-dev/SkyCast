@@ -19,12 +19,12 @@ const Navbar = () => {
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(
                 (position) =>{
-                    const lat = position.coords.latitude
-                    const lon = position.coords.lon
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude; 
 
                     console.log("Lat:", lat, "Lon:", lon); 
                     
-                dispatch(fetchWeatherData(null, lat, lon));
+                dispatch(fetchWeatherData( lat, lon));
                 },
                 (error)=>{
                     console.error('error getting this location', error.message)
