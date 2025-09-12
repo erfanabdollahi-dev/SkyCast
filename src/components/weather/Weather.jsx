@@ -70,7 +70,7 @@ const Weather = () => {
     useEffect(() => {
         if(!current){
             
-            dispatch(fetchWeatherData(defaultLoc.city, defaultLoc.lat, defaultLoc.lon))
+            dispatch(fetchWeatherData( defaultLoc.lat, defaultLoc.lon))
         }
 
     }, [current, forecast, air, loading, error]);

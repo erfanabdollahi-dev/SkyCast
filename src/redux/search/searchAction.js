@@ -30,7 +30,7 @@ export const searchCity = (query)=>{
         dispatch(searchRequest());
         axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=15&appid=${key}`)
         .then(res=>{
-            console.log(res.data);
+            
             
             dispatch(searchSuccess(res.data))
         })

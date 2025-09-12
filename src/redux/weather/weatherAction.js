@@ -13,7 +13,7 @@ export const weatherFailure = (error) => {
     return {type: WEATHER_FAILURE, payload: error}
 }
 
-export const fetchWeatherData = (city, lat, lon) => {
+export const fetchWeatherData = ( lat, lon) => {
     return async (dispatch) => {
         try{
             dispatch(weatherRequest());
