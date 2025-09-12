@@ -11,7 +11,7 @@ const Navbar = () => {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        console.log('navbar render');
+ 
         
     })
 

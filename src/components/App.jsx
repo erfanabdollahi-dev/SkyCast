@@ -6,7 +6,7 @@ import store from '../redux/store';
 
 function App() {
     useEffect(()=>{
-        console.log('a[[ render');
+
         
     },[])
     return (
