@@ -13,8 +13,8 @@ import eye from '../../assets/weather_icons/eye.png'
 import thermometer from '../../assets/weather_icons/thermometer.png'
 import {useDispatch, useSelector} from 'react-redux'
 import moment from 'moment'
-import { fetchWeatherData } from '../../redux/weather/weatherAction'
 import weatherIcons from '../../weatherIcon'
+import { sagaWeatherRequest } from '../../redux/weather/weatherSaga'
 
 
 
@@ -70,7 +70,8 @@ const Weather = () => {
     useEffect(() => {
         if(!current){
             
-            dispatch(fetchWeatherData( defaultLoc.lat, defaultLoc.lon))
+            // dispatch(fetchWeatherData( defaultLoc.lat, defaultLoc.lon))
+            dispatch(sagaWeatherRequest(defaultLoc.lat, defaultLoc.lon))
         }
 
     }, [current, forecast, air, loading, error]);

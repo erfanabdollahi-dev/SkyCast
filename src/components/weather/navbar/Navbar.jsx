@@ -5,6 +5,7 @@ import './navbar.css'
 import Search from './Search'
 import { useDispatch } from 'react-redux'
 import { fetchWeatherData } from '../../../redux/weather/weatherAction'
+import { sagaWeatherRequest } from '../../../redux/weather/weatherSaga'
 
 const Navbar = () => {
 
@@ -24,7 +25,7 @@ const Navbar = () => {
 
                     console.log("Lat:", lat, "Lon:", lon); 
                     
-                dispatch(fetchWeatherData( lat, lon));
+                dispatch(sagaWeatherRequest( lat, lon));
                 },
                 (error)=>{
                     console.error('error getting this location', error.message)

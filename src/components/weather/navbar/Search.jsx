@@ -2,6 +2,7 @@ import React, {memo, useEffect, useState} from 'react'
 import {searchCity} from '../../../redux/search/searchAction'
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchWeatherData} from '../../../redux/weather/weatherAction';
+import { sagaWeatherRequest } from '../../../redux/weather/weatherSaga';
 
 const Search = () => {
     const {data, loading, error} = useSelector(state => state.search)
@@ -44,7 +45,7 @@ const Search = () => {
 
     const handleSearchItem = (lat, lon) => {
 
-        dispatch(fetchWeatherData(lat, lon))
+        dispatch(sagaWeatherRequest(lat, lon))
         setShowDropdown(false)
 
     }
