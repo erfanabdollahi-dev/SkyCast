@@ -1,4 +1,4 @@
-import {call, put, takeEvery} from "redux-saga/effects"
+import {call, put, takeEvery, takeLatest} from "redux-saga/effects"
 import {WEATHER_FAILURE, WEATHER_REQEUST, WEATHER_SUCCESS} from "./weatherType"
 import { key } from "../key"
 import { current } from "@reduxjs/toolkit"
@@ -61,5 +61,6 @@ function* handleGetWeather(action){
 
 
 export function * watcherSaga() {
-    yield takeEvery(WEATHER_REQEUST,handleGetWeather)
+    yield takeLatest(WEATHER_REQEUST,handleGetWeather)
+    
 }

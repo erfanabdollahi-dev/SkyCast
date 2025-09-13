@@ -17,27 +17,35 @@ const Navbar = () => {
     })
 
     const handleGpsBtn = ()=>{
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(
-                (position) =>{
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude; 
+        try{
 
-                    console.log("Lat:", lat, "Lon:", lon); 
-                    
-                dispatch(sagaWeatherRequest( lat, lon));
-                },
-                (error)=>{
-                    console.error('error getting this location', error.message)
-                }
-            
-            
-            )
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(
+                    (position) =>{
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude; 
+    
+                        console.log("Lat:", lat, "Lon:", lon); 
+                        
+                    dispatch(sagaWeatherRequest( lat, lon));
+                    },
+                    (error)=>{
+                        console.error('error getting this location', error.message)
+                    }
+                
+                
+                )
+            }
+            else{
+                alert("Geolocation is not supported by this browser.");
+                
+            }
         }
-        else{
-            alert("Geolocation is not supported by this browser.");
+        catch(error){
+            console.log(error.message);
             
         }
+     
     }
 
     return (

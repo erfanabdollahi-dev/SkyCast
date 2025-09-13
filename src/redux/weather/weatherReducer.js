@@ -12,6 +12,8 @@ export const weatherReducer = (state = weatherState, action) => {
 
     switch (action.type) {
         case WEATHER_REQEUST:
+            
+            
             return {
                 ...state,
                 loading: true,
@@ -19,6 +21,7 @@ export const weatherReducer = (state = weatherState, action) => {
 
             }
         case WEATHER_SUCCESS:
+            console.log('clikced');
             return {
                 ...state,
                 loading: false,
