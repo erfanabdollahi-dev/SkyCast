@@ -26,7 +26,7 @@ export const fetchWeatherData = ( lat, lon) => {
             
             
             const fl = foreCastRes.data.list
-            const newForecastList = [fl[1],fl[8],fl[16],fl[24],fl[32]]
+            const newForecastList = [fl[0],fl[8],fl[16],fl[24],fl[32]]
             dispatch(weatherSuccess({
                 current : currentRes.data,
                 forecast: newForecastList,
